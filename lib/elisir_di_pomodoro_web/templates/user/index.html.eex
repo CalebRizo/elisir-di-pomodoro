@@ -1,0 +1,14 @@
+<h1>Que onda batooooos</h1>
+
+<div><%= link "Crear nuevo usuario", to: user_path(@conn, :new) %></div>
+
+<ul>
+  <%= for user <- @users do %>
+    <li>
+      <%= user.username%> -
+      <%= display_email(user.email) %> -
+      <%= link "Borrar", to: user_path(@conn, :delete, user.id),
+          method: :delete, data: [confirm: "Seguro bato?"] %>
+    </li>
+  <% end %>
+</ul>

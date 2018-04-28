@@ -16,7 +16,10 @@ defmodule ElisirDiPomodoroWeb.Router do
   scope "/", ElisirDiPomodoroWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", UserController, :index
+    get "/users/new", UserController, :new
+    post "/users", UserController, :create
+    delete "/users/:id", UserController, :delete
   end
 
   # Other scopes may use custom stacks.
